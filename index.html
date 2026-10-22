@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>روناز — ١٠٠٠ متابع</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#fff8f8;--paper:#fffdfc;--ink:#351d2b;--muted:#765f69;
+      --pink:#d84e79;--pink-deep:#aa315d;--rose:#f4bfd0;--rose-soft:#fde8ed;
+      --gold:#b77b21;--gold-bright:#d99a2b;--line:rgba(108,43,67,.13);
+      --shadow:0 24px 80px rgba(117,43,70,.16);
+    }
+    @media(prefers-color-scheme:dark){
+      :root{--bg:#1c1118;--paper:#271720;--ink:#fff5f8;--muted:#d4b9c4;--pink:#f1749c;--pink-deep:#ff9abb;--rose:#71354b;--rose-soft:#3c202c;--gold:#edbd62;--gold-bright:#f3cd7d;--line:rgba(255,220,231,.13);--shadow:0 28px 90px rgba(0,0,0,.42)}
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:"Alexandria",sans-serif;overflow-x:hidden}
+    button{font:inherit}
+    .page{position:relative;isolation:isolate;min-height:100svh;padding:clamp(18px,3.5vw,46px);display:grid;place-items:center;overflow:hidden}
+    .backdrop{position:absolute;inset:-60px;z-index:-4;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(26px) saturate(.8);opacity:.26;transform:scale(1.06)}
+    .wash{position:absolute;inset:0;z-index:-3;background:linear-gradient(145deg,rgba(255,255,255,.62),rgba(255,244,247,.88) 55%,rgba(248,214,224,.74))}
+    @media(prefers-color-scheme:dark){.backdrop{opacity:.16}.wash{background:linear-gradient(145deg,rgba(24,14,20,.85),rgba(34,18,27,.94) 55%,rgba(56,27,39,.9))}}
+    .orb{position:absolute;z-index:-2;border-radius:50%;border:1px solid rgba(255,255,255,.6);box-shadow:inset -20px -22px 40px rgba(148,42,78,.13),inset 12px 10px 24px rgba(255,255,255,.7),0 24px 60px rgba(167,65,99,.12)}
+    .orb.one{width:150px;height:150px;top:-45px;right:7%;background:rgba(238,137,169,.32)}
+    .orb.two{width:88px;height:88px;bottom:8%;left:4%;background:rgba(218,172,213,.28)}
+    .sparkles{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle,rgba(184,120,30,.7) 0 2px,transparent 2.5px),radial-gradient(circle,rgba(216,78,121,.55) 0 2px,transparent 2.5px);background-size:92px 92px,137px 137px;background-position:20px 10px,60px 72px;mask-image:linear-gradient(to bottom,#000,transparent 38%,transparent 64%,#000)}
+    .card{width:min(1020px,100%);background:color-mix(in srgb,var(--paper) 94%,transparent);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:34px 34px 90px 34px;display:grid;grid-template-columns:.92fr 1.08fr;position:relative;overflow:hidden}
+
+    /* ---------- art panel ---------- */
+    .art{position:relative;min-height:600px;background:linear-gradient(155deg,var(--rose-soft),color-mix(in srgb,var(--rose) 44%,var(--paper)));display:flex;align-items:center;justify-content:center;overflow:hidden;padding:48px 36px}
+    .art::before,.art::after{content:"";position:absolute;border-radius:50%}
+    .art::before{width:270px;height:270px;background:rgba(255,255,255,.48);top:-80px;right:-55px;box-shadow:-180px 340px 0 -80px rgba(255,255,255,.34)}
+    .art::after{width:170px;height:170px;background:rgba(213,83,124,.12);bottom:70px;left:-60px}
+    .number{position:absolute;inset:0;display:grid;place-items:start center;padding-top:26px;font-family:"Reem Kufi",sans-serif;font-size:clamp(6.5rem,15vw,10.5rem);font-weight:700;letter-spacing:-.08em;line-height:1;color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--pink) 55%,transparent);opacity:.32;pointer-events:none}
+    .photo-wrap{position:relative;z-index:2;margin-top:110px;animation:floaty 6s ease-in-out infinite}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    .photo{width:min(320px,78vw);aspect-ratio:4/5;object-fit:cover;display:block;border-radius:170px 170px 26px 26px;border:3px solid color-mix(in srgb,var(--gold) 65%,#fff);box-shadow:0 30px 60px rgba(117,43,70,.28),0 0 0 10px rgba(255,255,255,.35)}
+    .badge{position:absolute;top:22px;right:-16px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#fff;padding:9px 16px;border-radius:999px;font-weight:800;font-size:.85rem;box-shadow:0 12px 24px rgba(150,100,20,.35);transform:rotate(4deg)}
+    .ribbon{position:absolute;bottom:-14px;right:50%;transform:translateX(50%) rotate(-2deg);background:var(--pink);color:#fff;padding:11px 26px;border-radius:7px 18px 7px 18px;font-weight:700;white-space:nowrap;box-shadow:0 10px 20px rgba(168,45,88,.22);z-index:3}
+
+    /* ---------- copy ---------- */
+    .copy{padding:clamp(34px,5.5vw,68px);display:flex;flex-direction:column;justify-content:center;position:relative}
+    .kicker{display:flex;align-items:center;gap:12px;color:var(--pink-deep);font-weight:700;margin:0 0 20px}
+    .kicker::before{content:"";width:46px;height:2px;background:var(--pink)}
+    h1{font-family:"Reem Kufi",sans-serif;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1.13;margin:0;letter-spacing:-.045em}
+    .accent{color:var(--pink)}
+    .lead{font-size:clamp(1.02rem,1.9vw,1.24rem);line-height:1.95;margin:24px 0 8px;color:var(--muted);max-width:30em}
+    .lead strong{color:var(--ink)}
+
+    /* journey strip */
+    .journey{margin:26px 0 30px;max-width:30em}
+    .track{display:flex;align-items:flex-start;position:relative}
+    .track::before{content:"";position:absolute;top:15px;right:16%;left:16%;height:3px;border-radius:3px;background:linear-gradient(to left,var(--gold) 0 50%,color-mix(in srgb,var(--muted) 30%,transparent) 50% 100%)}
+    .step{flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;position:relative;z-index:1}
+    .dot{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:800;border:2px solid var(--line);background:var(--paper);color:var(--muted)}
+    .step.done .dot{background:var(--rose-soft);border-color:var(--pink);color:var(--pink-deep)}
+    .step.now .dot{width:40px;height:40px;margin-top:-4px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));border-color:transparent;color:#fff;box-shadow:0 10px 22px rgba(194,58,101,.35);font-size:.95rem}
+    .step.next .dot{border-style:dashed;color:var(--gold)}
+    .step .n{font-family:"Reem Kufi",sans-serif;font-weight:700;font-size:1.05rem;line-height:1}
+    .step.now .n{color:var(--pink-deep);font-size:1.2rem}
+    .step .t{font-size:.74rem;color:var(--muted);line-height:1.5}
+    .step.now .t{color:var(--pink-deep);font-weight:700}
+
+    .handle{display:inline-flex;direction:ltr;align-items:center;gap:10px;color:var(--pink-deep);font-weight:700;margin-bottom:32px;letter-spacing:.02em;font-size:1.05rem}
+    .ig{width:25px;height:25px;border:2px solid currentColor;border-radius:7px;position:relative;flex:none}
+    .ig::before{content:"";position:absolute;width:7px;height:7px;border:2px solid currentColor;border-radius:50%;inset:0;margin:auto}
+    .ig::after{content:"";position:absolute;width:3px;height:3px;background:currentColor;border-radius:50%;top:4px;right:4px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:0;cursor:pointer;border-radius:14px;padding:14px 20px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+    .btn:active{transform:translateY(1px)}
+    .primary{background:var(--pink);color:#fff;box-shadow:0 12px 25px rgba(194,58,101,.24)}
+    .secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}
+    .secondary:hover{background:var(--rose-soft)}
+    .heart{width:20px;height:18px;position:relative;transform:rotate(-45deg);background:currentColor;border-radius:3px 0 0 3px;flex:none}
+    .heart::before,.heart::after{content:"";position:absolute;width:20px;height:20px;background:currentColor;border-radius:50%}
+    .heart::before{top:-10px;left:0}
+    .heart::after{left:10px;top:0}
+    .note{position:absolute;left:26px;bottom:20px;font-size:.76rem;color:var(--muted);writing-mode:vertical-rl;letter-spacing:.08em}
+    .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);background:var(--ink);color:var(--paper);padding:11px 18px;border-radius:999px;font-size:.88rem;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .confetti{position:fixed;width:9px;height:16px;border-radius:2px;top:-24px;z-index:30;pointer-events:none;animation:fall var(--d) cubic-bezier(.2,.6,.25,1) forwards}
+    @keyframes fall{to{transform:translate(var(--x),105vh) rotate(var(--r));opacity:.15}}
+
+    @media(max-width:760px){
+      .page{padding:12px}
+      .card{grid-template-columns:1fr;border-radius:26px 26px 60px 26px}
+      .copy{padding:40px 26px 46px;order:1;text-align:center;align-items:center}
+      .art{order:2;min-height:430px;padding:34px 20px 44px}
+      .number{font-size:6.2rem;padding-top:14px}
+      .photo-wrap{margin-top:64px}
+      .photo{width:min(250px,72vw)}
+      .lead{margin:20px 0 6px}
+      .kicker::before{display:none}
+      .journey{width:100%}
+      .actions{justify-content:center;width:100%}
+      .btn{flex:1;min-width:140px}
+      .note{display:none}
+    }
+    @media(max-width:400px){
+      h1{font-size:2.35rem}
+      .copy{padding:32px 20px 38px}
+      .actions{flex-direction:column}
+      .btn{width:100%}
+      .art{min-height:390px}
+      .photo{width:min(215px,70vw)}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important}
+      .btn,.toast{transition:none}
+      .confetti{display:none}
+      .photo-wrap{animation:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <img class="backdrop" src="assets/media-generation-ronaz-1000-bouquet-0-8fb893b3-52fe-48ca-8f0b-6c218dc6da32.webp" alt="" aria-hidden="true">
+    <div class="wash"></div><div class="sparkles"></div><i class="orb one"></i><i class="orb two"></i>
+    <article class="card" aria-labelledby="title">
+      <section class="art" aria-hidden="true">
+        <div class="number">١٠٠٠</div>
+        <div class="photo-wrap">
+          <img class="photo" src="assets/media-generation-ronaz-1000-bouquet-0-8fb893b3-52fe-48ca-8f0b-6c218dc6da32.webp" alt="">
+          <span class="badge">ألف متابع</span>
+          <div class="ribbon">ضاعفنا الرقم</div>
+        </div>
+      </section>
+      <section class="copy">
+        <p class="kicker">إنجاز جديد يليق بها</p>
+        <h1 id="title">مبروك يا <span class="accent">روناز</span></h1>
+        <p class="lead">وصلتِ إلى <strong>١٠٠٠ متابع</strong> — ألف شخص اختاروا أن يكونوا جزءاً من رحلتك. قبل فترة احتفلنا بالخمس مئة، واليوم <strong>ضاعفنا الرقم</strong>… ومنها للعشرة آلاف، وكل خطوة أجمل من التي قبلها.</p>
+        <div class="journey" aria-label="رحلة المتابعين">
+          <div class="track">
+            <div class="step done">
+              <span class="dot">✓</span>
+              <span class="n">٥٠٠</span>
+              <span class="t">احتفلنا بها</span>
+            </div>
+            <div class="step now">
+              <span class="dot">♥</span>
+              <span class="n">١٠٠٠</span>
+              <span class="t">اليوم</span>
+            </div>
+            <div class="step next">
+              <span class="dot">★</span>
+              <span class="n">١٠٬٠٠٠</span>
+              <span class="t">المحطة القادمة</span>
+            </div>
+          </div>
+        </div>
+        <div class="handle"><span class="ig" aria-hidden="true"></span><span>@elegance_rose195</span></div>
+        <div class="actions">
+          <button class="btn primary" id="celebrate" type="button"><span class="heart" aria-hidden="true"></span>احتفلي باللحظة</button>
+          <button class="btn secondary" id="copy" type="button">نسخ اسم الحساب</button>
+        </div>
+        <span class="note">صُنعت بمحبة لروناز</span>
+      </section>
+    </article>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite">تم نسخ اسم الحساب</div>
+  <script>
+    (function(){
+      var celebrate=document.getElementById('celebrate');
+      var copy=document.getElementById('copy');
+      var toast=document.getElementById('toast');
+      var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var colors=['#d84e79','#f4bfd0','#b77b21','#d99a2b','#f08c9e','#fff3f6'];
+      function shower(){
+        if(reduce){showToast('ألف مرة مبروك يا روناز');return;}
+        for(var i=0;i<90;i++){
+          var p=document.createElement('i');
+          p.className='confetti';
+          p.style.left=(Math.random()*100)+'vw';
+          p.style.background=colors[Math.floor(Math.random()*colors.length)];
+          if(i%5===0){p.style.borderRadius='50%';p.style.width='10px';p.style.height='10px';}
+          p.style.setProperty('--d',(2.8+Math.random()*2.4)+'s');
+          p.style.setProperty('--x',(-120+Math.random()*240)+'px');
+          p.style.setProperty('--r',(360+Math.random()*900)+'deg');
+          p.style.animationDelay=(Math.random()*.5)+'s';
+          document.body.appendChild(p);
+          setTimeout(function(el){el.remove()},5800,p);
+        }
+        showToast('ألف مرة مبروك يا روناز');
+      }
+      function showToast(text){toast.textContent=text;toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(function(){toast.classList.remove('show')},2200)}
+      celebrate.addEventListener('click',shower);
+      copy.addEventListener('click',function(){
+        var text='@elegance_rose195';
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){showToast('تم نسخ اسم الحساب')},function(){showToast(text)})}
+        else{showToast(text)}
+      });
+      setTimeout(shower,550);
+    })();
+  </script>
+</body>
+</html>
